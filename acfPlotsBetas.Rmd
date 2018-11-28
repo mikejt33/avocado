@@ -1,0 +1,64 @@
+---
+title: "betas"
+author: "Michael McCormack"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(forecast)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+betas <- read.csv('betas.csv')
+head(betas)
+```
+
+```{r pressure, echo=FALSE}
+intercept<- ts(betas[2])
+acf(intercept)
+pacf(intercept)
+auto.arima(intercept)
+
+```
+
+```{r}
+lon<- ts(betas[3])
+acf(lon)
+pacf(lon)
+auto.arima(lon)
+
+```
+
+
+```{r}
+lat<- ts(betas[4])
+acf(lat)
+pacf(lat)
+auto.arima(lat)
+
+```
+
+```{r}
+volume<- ts(betas[5])
+acf(volume)
+pacf(volume)
+auto.arima(volume)
+```
+
+```{r}
+costofLiving <- ts(betas[6])
+acf(costofLiving)
+pacf(costofLiving)
+auto.arima(costofLiving)
+```
+
+
+
+
